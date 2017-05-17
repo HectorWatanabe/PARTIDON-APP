@@ -18,4 +18,5 @@
         completions."
     </string>
     <string name="title_activity_crear_equipo">CrearEquipoActivity</string>
+    <string name="title_activity_buscar_espacio">Buscar Espacio Deportivo</string>
 </resources>

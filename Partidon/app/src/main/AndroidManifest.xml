@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".NoticiasActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
@@ -28,7 +28,10 @@
         </activity>
         <activity
             android:name=".CrearEquipoActivity"
-            android:label="@string/title_activity_crear_equipo"></activity>
+            android:label="@string/title_activity_crear_equipo" />
+        <activity
+            android:name=".BuscarEspacioActivity"
+            android:label="@string/title_activity_buscar_espacio"></activity>
     </application>
 
 </manifest>
