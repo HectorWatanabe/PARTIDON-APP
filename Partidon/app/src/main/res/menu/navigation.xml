@@ -2,18 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/ic_home_white_24dp"
+        android:title="Noticias" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_match"
+        android:icon="@drawable/ic_grain_white_24dp"
+        android:title="Partidos"
+        />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
-
+        android:id="@+id/navigation_comments"
+        android:icon="@drawable/ic_add_circle_white_24dp"
+        android:title="Comentarios" />
+    <item
+        android:id="@+id/navigation_teams"
+        android:icon="@drawable/ic_group_white_24dp"
+        android:title="Equipos" />
+    <item
+        android:id="@+id/navigation_fields"
+        android:icon="@drawable/ic_view_quilt_white_24dp"
+        android:title="Canchas" />
 </menu>
