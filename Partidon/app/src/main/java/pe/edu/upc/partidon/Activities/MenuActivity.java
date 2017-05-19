@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -19,23 +16,10 @@ import android.widget.TextView;
 
 import pe.edu.upc.partidon.Adapters.SectionsPageAdapter;
 import pe.edu.upc.partidon.R;
+import pe.edu.upc.partidon.Activities.GoalsFragment;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private SectionsPageAdapter mSectionsPageAdapter;
-    private ViewPager mViewPager;
-    private TextView mTextMessage;
-
-
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    public void onFragmentInteraction(Uri uri){
-
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,24 +27,25 @@ public class MenuActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_news:
-
+                    FragmentManager news_fn = getFragmentManager();
+                    news_fn.beginTransaction().replace(R.id.content, new NewsFragment()).commit();
                     return true;
                 case R.id.navigation_match:
-                    Intent intent_match = new Intent(MenuActivity.this, MatchActivity.class);
-                    startActivity(intent_match);
+                    FragmentManager goals_fn = getFragmentManager();
+                    goals_fn.beginTransaction().replace(R.id.content, new GoalsFragment()).commit();
+
                     break;
                 case R.id.navigation_comments:
                     break;
                 case R.id.navigation_teams:
-                    Intent intentTeam = new Intent(MenuActivity.this, TeamActivity.class);
-                    startActivity(intentTeam);
+                    FragmentManager team_fn = getFragmentManager();
+                    team_fn.beginTransaction().replace(R.id.content, new TeamFragment()).commit();
                     break;
                 case R.id.navigation_fields:
-                    Intent intent_fields = new Intent(MenuActivity.this, CourtActivity.class);
-                    startActivity(intent_fields);
+                    FragmentManager court_fn = getFragmentManager();
+                    court_fn.beginTransaction().replace(R.id.content, new CourtFragment()).commit();
                     break;
             }
             return false;
@@ -74,24 +59,9 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-
-
-
-        mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.page_pager);
-        setupViewPager(mViewPager);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-
+        FragmentManager news_fn = getFragmentManager();
+        news_fn.beginTransaction().replace(R.id.content, new NewsFragment()).commit();
     }
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new NewsFragment(), "Noticias");
-        adapter.addFragment(new GoalsFragment(), "Marcadores");
-        viewPager.setAdapter(adapter);
-    }
+
 
 }

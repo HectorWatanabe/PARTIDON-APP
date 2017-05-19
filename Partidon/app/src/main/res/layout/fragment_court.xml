@@ -1,17 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pe.edu.upc.partidon.Activities.GoalsFragment">
+    tools:context="pe.edu.upc.partidon.Activities.CourtFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textTextViewFractmentGoals"
+        android:id="@+id/textTextViewFractmentNews"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:text="Partidos"
+        android:text="Canchas"
         android:textSize="25sp"
         android:layout_marginTop="40dp"/>
-
 </FrameLayout>
