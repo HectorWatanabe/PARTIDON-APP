@@ -1,41 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="pe.edu.upc.partidon.Activities.MenuActivity">
-
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
-
-        <!--<android.support.design.widget.TabLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/tabs">-->
-
-
-        <!--</android.support.design.widget.TabLayout>-->
-
-    <!--</android.support.design.widget.AppBarLayout>-->
-
-    <!--<android.support.v4.view.ViewPager-->
-        <!--android:id="@+id/page_pager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-        <!--android:layout_weight="1" />-->
-    <FrameLayout
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-
-    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
@@ -45,6 +15,14 @@
         app:itemIconTint="@color/ColorIcons"
         app:itemTextColor="@color/ColorIcons"
         android:background="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
         app:menu="@menu/navigation" />
 
-</LinearLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_above="@id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</RelativeLayout>
