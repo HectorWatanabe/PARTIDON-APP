@@ -22,6 +22,7 @@ import pe.edu.upc.partidon.fragments.CourtFragment;
 import pe.edu.upc.partidon.fragments.MatchFragment;
 import pe.edu.upc.partidon.fragments.NewsFragment;
 import pe.edu.upc.partidon.fragments.TeamsFragment;
+import pe.edu.upc.partidon.fragments.UserFragment;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -55,13 +56,13 @@ public class MenuActivity extends AppCompatActivity {
                 case R.id.navigation_match:
                     replaceFragment(1);
                     break;
-                case R.id.navigation_comments:
+                case R.id.navigation_teams:
                     replaceFragment(2);
                     break;
-                case R.id.navigation_teams:
+                case R.id.navigation_fields:
                     replaceFragment(3);
                     break;
-                case R.id.navigation_fields:
+                case R.id.navigation_user:
                     replaceFragment(4);
                     break;
             }
@@ -96,10 +97,10 @@ public class MenuActivity extends AppCompatActivity {
         if(mFragments == null){
             mFragments = new ArrayList<Fragment>();
             mFragments.add(NewsFragment.newInstance());
-            mFragments.add(TeamsFragment.newInstance());
-            mFragments.add(TeamsFragment.newInstance());
             mFragments.add(MatchFragment.newInstance());
+            mFragments.add(TeamsFragment.newInstance());
             mFragments.add(CourtFragment.newInstance());
+            mFragments.add(UserFragment.newInstance( ));
         }
         return mFragments;
     }

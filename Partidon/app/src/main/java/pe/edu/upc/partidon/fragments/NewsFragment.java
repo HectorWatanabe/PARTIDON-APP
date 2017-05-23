@@ -9,11 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import pe.edu.upc.partidon.Activities.GoalsFragment;
-import pe.edu.upc.partidon.Activities.NewsFeedFragment;
 import pe.edu.upc.partidon.Adapters.SectionsPageAdapter;
 import pe.edu.upc.partidon.R;
 
@@ -42,6 +37,9 @@ public class NewsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
         mViewPager = (ViewPager) view.findViewById(R.id.page_pager);
         setupViewPager(mViewPager);
+
+
+
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);

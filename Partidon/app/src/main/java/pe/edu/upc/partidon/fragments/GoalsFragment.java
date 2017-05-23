@@ -1,4 +1,4 @@
-package pe.edu.upc.partidon.Activities;
+package pe.edu.upc.partidon.fragments;
 
 import android.content.Context;
 import android.net.Uri;

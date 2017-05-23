@@ -13,10 +13,6 @@
         />
 
     <item
-        android:id="@+id/navigation_comments"
-        android:icon="@drawable/ic_add_circle_white_24dp"
-        android:title="Comentarios" />
-    <item
         android:id="@+id/navigation_teams"
         android:icon="@drawable/ic_group_white_24dp"
         android:title="Equipos" />
@@ -24,4 +20,8 @@
         android:id="@+id/navigation_fields"
         android:icon="@drawable/ic_view_quilt_white_24dp"
         android:title="Canchas" />
+    <item
+        android:id="@+id/navigation_user"
+        android:icon="@drawable/ic_person_white_24dp"
+        android:title="Jugador" />
 </menu>
