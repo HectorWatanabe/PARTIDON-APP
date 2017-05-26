@@ -6,13 +6,40 @@ package pe.edu.upc.partidon.models;
 
 public class NewsComments {
 
-    private String title;
+    private String nameUser;
+    private String Comment;
+    private int likes;
 
-    public String getTitle() {
-        return title;
+    public NewsComments() {
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public NewsComments(String nameUser, String comment, int likes) {
+        this.nameUser = nameUser;
+        Comment = comment;
+        this.likes = likes;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
+    public String getComment() {
+        return Comment;
+    }
+
+    public void setComment(String comment) {
+        Comment = comment;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 }

@@ -16,7 +16,10 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="35dp"
+            app:tabIndicatorColor="@color/ColorPrimaryLight"
+            app:tabTextColor="@color/ColorDivider"
+            app:tabSelectedTextColor="@color/ColorPrimaryLight">
 
 
         </android.support.design.widget.TabLayout>

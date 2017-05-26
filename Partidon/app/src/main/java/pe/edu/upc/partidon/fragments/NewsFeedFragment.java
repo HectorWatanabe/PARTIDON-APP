@@ -32,6 +32,8 @@ public class NewsFeedFragment extends Fragment {
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         newsRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getDummyCommnets()));
 
+
+
         return view;
     }
 
@@ -40,7 +42,9 @@ public class NewsFeedFragment extends Fragment {
         List<NewsComments> results = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             NewsComments newsComments = new NewsComments();
-            newsComments.setTitle("Title " + i);
+            newsComments.setNameUser("Maria Fernanda Segovia Chacón " + i);
+            newsComments.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut " +
+                    "labore et dolore magna aliqua. Un ullamco laboris nisi ut aliquip ex ea commodo consequat. " + i);
             results.add(newsComments);
         }
         return results;
