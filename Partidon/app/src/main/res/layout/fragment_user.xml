@@ -1,14 +1,192 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="pe.edu.upc.partidon.fragments.UserFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="361dp"
+        android:layout_height="112dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="0dp">
+
+        <ImageView
+            android:id="@+id/userImageView"
+            android:layout_width="57dp"
+            android:layout_height="52dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/nameUserTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maria Fernanda Segovia Chacón"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@+id/userImageView"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp" />
+
+        <ImageView
+            android:id="@+id/starOneImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star"
+            app:layout_constraintLeft_toRightOf="@+id/starTreeImageView"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameUserTextView"
+            android:layout_marginStart="4dp" />" />
+
+        <ImageView
+            android:id="@+id/starTwoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star"
+            app:layout_constraintLeft_toRightOf="@+id/starFiveImageView"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameUserTextView"
+            android:layout_marginStart="4dp" />
+
+        <ImageView
+            android:id="@+id/starTreeImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star"
+            app:layout_constraintLeft_toRightOf="@+id/starTwoImageView"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameUserTextView"
+            android:layout_marginStart="4dp" />
+
+        <ImageView
+            android:id="@+id/starFourtImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameUserTextView"
+            app:layout_constraintLeft_toRightOf="@+id/userImageView"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" />
+
+        <ImageView
+            android:id="@+id/starFiveImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star"
+            app:layout_constraintLeft_toRightOf="@+id/starFourtImageView"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameUserTextView"
+            android:layout_marginStart="4dp" />
+        <ImageView
+            android:id="@+id/sportUserImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/basketball"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/starTreeImageView"
+            app:layout_constraintLeft_toRightOf="@+id/starTwoImageView"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/sportUserTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deporte:"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/starFiveImageView"
+            app:layout_constraintLeft_toRightOf="@+id/userImageView"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" />
+
+        <ImageView
+            android:id="@+id/locationtUserImageView"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_location_on_black_24dp"
+            app:layout_constraintLeft_toRightOf="@+id/userImageView"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/starFourtImageView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp" />
+        <ImageView
+            android:id="@+id/UserImageView"
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_location_on_black_24dp"
+            app:layout_constraintLeft_toRightOf="@+id/userImageView"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/starFourtImageView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/locationNameUserTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="San Isidro"
+            app:layout_constraintLeft_toRightOf="@+id/locationtUserImageView"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/starFiveImageView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="4dp" />
+
+        <ImageView
+            android:id="@+id/userSettingImageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_settings_black_24dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/userRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello User" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-</FrameLayout>
+    </android.support.v7.widget.RecyclerView>
+
+
+</android.support.constraint.ConstraintLayout>
+
+
 

@@ -34,7 +34,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        NewsComments comment = comments.get(position);
+        holder.nameUserTextView.setText(comments.get(position).getNameUser());
+        holder.commentTextView.setText(comments.get(position).getComment());
     }
 
     @Override
@@ -48,6 +49,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
 
         public ViewHolder(View itemView) {
             super(itemView);
+            nameUserTextView = (TextView) itemView.findViewById(R.id.nameUserTextView);
+            commentTextView = (TextView) itemView.findViewById(R.id.commentTextView);
         }
     }
 }
