@@ -5,8 +5,8 @@ package pe.edu.upc.partidon.models;
  */
 
 public class User {
-
-
+    private String id;
+    private String token;
     private String nameUser;
     private String location;
     public User() {
@@ -33,5 +33,21 @@ public class User {
     public User setLocation(String location) {
         this.location = location;
         return this;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

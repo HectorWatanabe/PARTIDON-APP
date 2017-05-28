@@ -43,7 +43,7 @@ public class CourtFragment extends Fragment {
 
         courtRecyclerView = (RecyclerView) view.findViewById(R.id.courtsRecyclerView);
         courtRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        courtRecyclerView.setAdapter(new CourtAdapter(getContext(),getCourt()));
+        courtRecyclerView.setAdapter(new CourtAdapter(getActivity(),getCourt()));
 
         return view;
     }

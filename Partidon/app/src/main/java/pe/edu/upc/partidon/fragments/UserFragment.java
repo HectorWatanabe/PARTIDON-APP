@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +20,19 @@ import pe.edu.upc.partidon.Adapters.NewsFeedAdapter;
 import pe.edu.upc.partidon.Adapters.TeamAdapter;
 import pe.edu.upc.partidon.Adapters.UserAdapter;
 import pe.edu.upc.partidon.R;
+import pe.edu.upc.partidon.datasource.UserRepository;
 import pe.edu.upc.partidon.models.NewsComments;
 import pe.edu.upc.partidon.models.Team;
+import pe.edu.upc.partidon.models.User;
 
- public class UserFragment extends Fragment {
+public class UserFragment extends Fragment {
         private static final String TAG = "UserFragment";
         private RecyclerView userRecyclerView;
+     private TextView nameUserTextView;
 
+     private UserRepository userRepository;
 
-        public UserFragment() {
+     public UserFragment() {
             // Required empty public constructor
         }
 
@@ -42,9 +47,20 @@ import pe.edu.upc.partidon.models.Team;
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_user,container,false);
 
+            userRepository = new UserRepository(getContext());
+
             userRecyclerView = (RecyclerView) view.findViewById(R.id.userRecyclerView);
             userRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             userRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getUserComment()));
+
+            nameUserTextView = (TextView) view.findViewById(R.id.nameUserTextView);
+
+            User user = userRepository.getUser();
+            if(user != null){
+                nameUserTextView.setText(user.getNameUser());
+            }
+
+
 
             return view;
         }

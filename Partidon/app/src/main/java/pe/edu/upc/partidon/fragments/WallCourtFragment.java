@@ -1,5 +1,7 @@
 package pe.edu.upc.partidon.fragments;
 
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -16,21 +18,19 @@ import pe.edu.upc.partidon.Adapters.NewsFeedAdapter;
 import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.models.NewsComments;
 
+public class WallCourtFragment extends Fragment {
 
-public class NewsFeedFragment extends Fragment {
-    //
-
-    private static final String TAG = "NewFragment";
-    private RecyclerView newsRecyclerView;
+    private static final String TAG = "WallCourtFragment";
+    private RecyclerView wallCourtRecyclerView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_news_feed,container,false);
+        View view = inflater.inflate(R.layout.fragment_wall_court,container,false);
 
-        newsRecyclerView = (RecyclerView) view.findViewById(R.id.newsRecyclerView);
-        newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        newsRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getDummyCommnets()));
+        wallCourtRecyclerView = (RecyclerView) view.findViewById(R.id.wallCourtRecyclerView);
+        wallCourtRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        wallCourtRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getCourtCommnets()));
 
 
 
@@ -40,11 +40,11 @@ public class NewsFeedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        newsRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getDummyCommnets()));
+        wallCourtRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getCourtCommnets()));
 
     }
 
-    private List<NewsComments> getDummyCommnets(){
+    private List<NewsComments> getCourtCommnets(){
         List<NewsComments> results = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             NewsComments newsComments = new NewsComments();
