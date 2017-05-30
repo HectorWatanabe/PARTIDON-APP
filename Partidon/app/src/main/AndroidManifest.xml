@@ -24,8 +24,9 @@
         <activity
             android:name=".Activities.WallCourtActivity"
             android:parentActivityName=".Activities.MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activities.TeamActivity"
+            android:parentActivityName=".Activities.MenuActivity"></activity>
     </application>
 
 </manifest>

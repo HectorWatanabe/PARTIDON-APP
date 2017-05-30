@@ -59,8 +59,8 @@ public class WallCourtActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new WallCourtFragment(), "Inicio");
-        adapter.addFragment(new InformationCourtFragment(), "Info");
+        adapter.addFragment(new InformationCourtFragment(), "Inicio");
+        adapter.addFragment(new WallCourtFragment(), "Muro");
         adapter.addFragment(new CourtListFragment(), "Canchas");
         viewPager.setAdapter(adapter);
     }
