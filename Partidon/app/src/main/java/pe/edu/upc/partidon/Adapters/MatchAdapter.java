@@ -1,6 +1,7 @@
 package pe.edu.upc.partidon.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import pe.edu.upc.partidon.Activities.MatchWallActivity;
+import pe.edu.upc.partidon.Activities.TeamActivity;
 import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.models.Court;
 import pe.edu.upc.partidon.models.Match;
@@ -37,6 +40,14 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
             holder.teamOneTextView.setText(matches.get(position).getTeamOne());
             holder.teamTwoTextView.setText(matches.get(position).getTeamTwo());
             holder.availableSiteNumberTextView.setText(matches.get(position).getAvailableSiteAsString());
+            holder.matchContainer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, MatchWallActivity.class);
+                    context.startActivity(i);
+                           }
+            });
+
         }
 
         @Override
@@ -48,12 +59,14 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
             TextView teamOneTextView;
             TextView teamTwoTextView;
             TextView availableSiteNumberTextView;
+            View matchContainer;
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 teamOneTextView = (TextView) itemView.findViewById(R.id.teamOneTextView);
                 teamTwoTextView = (TextView) itemView.findViewById(R.id.teamTwoTextView);
                 availableSiteNumberTextView = (TextView) itemView.findViewById(R.id.availableSiteNumberTextView);
+                matchContainer = itemView.findViewById(R.id.matchContainer);
             }
         }
     }

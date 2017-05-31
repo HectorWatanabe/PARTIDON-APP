@@ -24,9 +24,17 @@
         <activity
             android:name=".Activities.WallCourtActivity"
             android:parentActivityName=".Activities.MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".Activities.TeamActivity"
-            android:parentActivityName=".Activities.MenuActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.TeamActivity"
+            android:parentActivityName=".Activities.MenuActivity" />
+        <activity
+            android:name=".Activities.MatchWallActivity"
+            android:label="Partido"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

@@ -15,4 +15,5 @@
     <string name="title_activity_court">Canchas Deportivas</string>
     <string name="title_activity_court_wall">CourtWallActivity</string>
     <string name="title_activity_wall_court">WallCourtActivity</string>
+    <string name="title_activity_match_wall">MatchWallActivity</string>
 </resources>
