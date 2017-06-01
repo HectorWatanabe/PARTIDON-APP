@@ -30,7 +30,7 @@
             android:parentActivityName=".Activities.MenuActivity" />
         <activity
             android:name=".Activities.MatchWallActivity"
-            android:label="Partido"
+            android:label=" "
             android:parentActivityName=".Activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
