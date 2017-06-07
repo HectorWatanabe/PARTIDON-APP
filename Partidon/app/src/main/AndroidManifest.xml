@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +20,11 @@
         </activity>
         <activity
             android:name=".Activities.MenuActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.WallCourtActivity"
-            android:parentActivityName=".Activities.MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".Activities.MenuActivity" />
         <activity
             android:name=".Activities.TeamActivity"
             android:parentActivityName=".Activities.MenuActivity" />
@@ -32,8 +32,15 @@
             android:name=".Activities.MatchWallActivity"
             android:label=" "
             android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.MatchSearchActivity"
+            android:label="@string/title_activity_match_search"
+            android:parentActivityName=".Activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
         </activity>
     </application>
 

@@ -1,3 +1,12 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
 <android.support.v7.widget.RecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,3 +16,15 @@
     android:background="#e5efee">
 
 </android.support.v7.widget.RecyclerView>
+<android.support.design.widget.FloatingActionButton
+android:id="@+id/record_fab"
+android:layout_width="50dp"
+android:layout_height="50dp"
+
+android:layout_gravity="bottom|end"
+android:layout_margin="@dimen/fab_margin"
+android:clickable="true"
+app:backgroundTint="@color/colorPrimary"
+app:fabSize="mini"
+app:srcCompat="@drawable/ic_search_white_24dp" />
+</android.support.design.widget.CoordinatorLayout>

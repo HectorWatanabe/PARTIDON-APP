@@ -32,11 +32,11 @@ public class MenuActivity extends AppCompatActivity {
     private FrameLayout frameLayout;
 
 
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+  //  public boolean onCreateOptionsMenu(Menu menu)
+  //  {
+  //      getMenuInflater().inflate(R.menu.main, menu);
+  //      return true;
+  //  }
 
     public void onFragmentInteraction(Uri uri){
 
