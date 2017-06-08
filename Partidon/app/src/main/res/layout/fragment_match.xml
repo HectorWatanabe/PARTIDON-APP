@@ -62,8 +62,9 @@
             android:id="@+id/add_match"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_circle_outline_white_24dp"
+            android:src="@drawable/ic_compare_arrows_white_24dp"
             fab:fab_colorNormal="#0097a7"
+            fab:fab_colorPressed="#0097a7"
             fab:fab_size="mini"
             fab:fab_label="Crear Partido" />
         <com.github.clans.fab.FloatingActionButton
@@ -72,6 +73,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_search_white_24dp"
             fab:fab_colorNormal="#26a69a"
+            fab:fab_colorPressed="#26a69a"
             fab:fab_size="mini"
             fab:fab_label="Buscar Partidos" />
 

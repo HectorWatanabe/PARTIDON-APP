@@ -17,6 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.clans.fab.FloatingActionMenu;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,12 +69,27 @@ public class MatchFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_match,container,false);
+            FloatingActionMenu materialDesignFAM;
+            com.github.clans.fab.FloatingActionButton floatingActionButtonMatch;
+            com.github.clans.fab.FloatingActionButton floatingActionButtonSearch;
+
+
 
             matchRecyclerView = (RecyclerView) view.findViewById(R.id.matchesRecyclerView);
             matchRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
             matchRecyclerView.setAdapter(new MatchAdapter(getContext(),getMatch()));
 
+            materialDesignFAM = (FloatingActionMenu) view.findViewById(R.id.menu);
+            floatingActionButtonMatch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.add_match);
+            floatingActionButtonSearch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.button_search);
 
+            floatingActionButtonSearch.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    startActivity(new Intent(v.getContext(), MatchSearchActivity.class));
+
+                }
+            });
 
             setHasOptionsMenu(true);
 

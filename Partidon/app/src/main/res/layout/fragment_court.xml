@@ -14,10 +14,9 @@
 
 </android.support.v7.widget.RecyclerView>
 <android.support.design.widget.FloatingActionButton
-android:id="@+id/record_fab"
+android:id="@+id/search_button_court"
 android:layout_width="50dp"
 android:layout_height="50dp"
-
 android:layout_gravity="bottom|end"
 android:layout_margin="@dimen/fab_margin"
 android:clickable="true"

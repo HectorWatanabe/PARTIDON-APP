@@ -18,4 +18,6 @@
     <string name="title_activity_match_wall">MatchWallActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_match_search">MatchSearchActivity</string>
+    <string name="title_activity_team_search">TeamSearchActivity</string>
+    <string name="title_activity_court_search">CourtSearchActivity</string>
 </resources>

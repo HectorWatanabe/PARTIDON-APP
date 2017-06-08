@@ -35,7 +35,31 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activities.MatchSearchActivity"
-            android:label="@string/title_activity_match_search"
+            android:label="Buscar Partidos"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Activities.TeamSearchActivity"
+            android:label="Buscar Equipos"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.CourtSearchActivity"
+            android:label="Buscar Canchas"
             android:parentActivityName=".Activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

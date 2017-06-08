@@ -1,8 +1,10 @@
 package pe.edu.upc.partidon.fragments;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,10 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.upc.partidon.Activities.CourtSearchActivity;
+import pe.edu.upc.partidon.Activities.MenuActivity;
 import pe.edu.upc.partidon.Adapters.CourtAdapter;
 import pe.edu.upc.partidon.Adapters.NewsFeedAdapter;
 import pe.edu.upc.partidon.R;
@@ -44,6 +49,18 @@ public class CourtFragment extends Fragment {
         courtRecyclerView = (RecyclerView) view.findViewById(R.id.courtsRecyclerView);
         courtRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         courtRecyclerView.setAdapter(new CourtAdapter(getActivity(),getCourt()));
+
+
+
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.search_button_court);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), CourtSearchActivity.class));
+            }
+        });
+
+
 
         return view;
     }
