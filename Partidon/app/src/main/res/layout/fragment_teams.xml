@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_group_add_white_24dp"
             fab:fab_colorNormal="#0097a7"
-            fab:menu_colorPressed="#0097a7"
+            fab:fab_colorPressed="#0097a7"
             fab:fab_size="mini"
             fab:fab_label="Crear Equipo" />
         <com.github.clans.fab.FloatingActionButton
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_search_white_24dp"
             fab:fab_colorNormal="#26a69a"
-            fab:menu_colorPressed="#26a69a"
+            fab:fab_colorPressed="#26a69a"
             fab:fab_size="mini"
             fab:fab_label="Buscar Equipo" />
 

@@ -62,8 +62,8 @@ public class CourtSearchActivity extends AppCompatActivity {
             tabLayout.getTabAt(1).setIcon(R.drawable.soccer_item);
             tabLayout.getTabAt(2).setIcon(R.drawable.tennis_ball_item);
             tabLayout.getTabAt(3).setIcon(R.drawable.basketball_item);
-            tabLayout.getTabAt(4).setIcon(R.drawable.basketball_item);
-            tabLayout.getTabAt(5).setIcon(R.drawable.basketball_item);
+            tabLayout.getTabAt(4).setIcon(R.drawable.ic_arrow_downward_white_24dp);
+            tabLayout.getTabAt(5).setIcon(R.drawable.ic_arrow_upward_white_24dp);
 
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

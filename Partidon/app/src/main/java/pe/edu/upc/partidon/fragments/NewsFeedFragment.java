@@ -49,8 +49,7 @@ public class NewsFeedFragment extends Fragment {
         for (int i = 0; i < 20; i++) {
             NewsComments newsComments = new NewsComments();
             newsComments.setNameUser("Maria Fernanda Segovia Chacón " + i);
-            newsComments.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut " +
-                    "labore et dolore magna aliqua. Un ullamco laboris nisi ut aliquip ex ea commodo consequat. " + i);
+            newsComments.setComment("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Un ullamco laboris nisi ut aliquip ex ea commodo consequat. " + i);
             results.add(newsComments);
         }
         return results;

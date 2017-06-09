@@ -217,23 +217,33 @@
         fab:menu_labels_position="left"
         fab:menu_openDirection="up"
         fab:menu_backgroundColor="@android:color/transparent">
-
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/add_match"
+            android:id="@+id/configuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_add_circle_outline_white_24dp"
+            android:src="@drawable/ic_settings_white_24dp"
+            fab:fab_colorNormal="#00838f"
+            fab:fab_colorPressed="#00838f"
+            fab:fab_size="mini"
+            fab:fab_label="Configuración del Equipo" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/view_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_group_white_24dp"
             fab:fab_colorNormal="#0097a7"
+            fab:fab_colorPressed="#0097a7"
             fab:fab_size="mini"
-            fab:fab_label="Crear Partido" />
+            fab:fab_label="Ver Jugadores" />
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/button_search"
+            android:id="@+id/add_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_search_white_24dp"
+            android:src="@drawable/ic_comment_white_24dp"
             fab:fab_colorNormal="#26a69a"
+            fab:fab_colorPressed="#26a69a"
             fab:fab_size="mini"
-            fab:fab_label="Buscar Partidos" />
+            fab:fab_label="Crear Publicación en Equipo" />
 
     </com.github.clans.fab.FloatingActionMenu>
 </android.support.design.widget.CoordinatorLayout>
