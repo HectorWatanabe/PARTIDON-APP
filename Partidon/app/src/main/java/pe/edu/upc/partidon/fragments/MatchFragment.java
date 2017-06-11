@@ -21,6 +21,7 @@ import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import pe.edu.upc.partidon.Activities.MatchSearchActivity;
 import pe.edu.upc.partidon.Activities.MenuActivity;
@@ -32,14 +33,24 @@ import pe.edu.upc.partidon.models.Match;
 
 
 public class MatchFragment extends Fragment {
-        private static final String TAG = "NewFragment";
-        private RecyclerView matchRecyclerView;
+    private static final String TAG = "NewFragment";
+    private RecyclerView matchRecyclerView;
 
 
+    public MatchFragment() {
+        // Required empty public constructor
+    }
 
-        public MatchFragment() {
-            // Required empty public constructor
-        }
+    public static MatchFragment newInstance(){
+        return newInstance(Match.Type.None);
+    }
+
+    public static MatchFragment newInstance(Match.Type filter) {
+        MatchFragment fragment = new MatchFragment();
+
+        return fragment;
+    }
+
 
 
     @Override
@@ -47,11 +58,6 @@ public class MatchFragment extends Fragment {
         inflater.inflate(R.menu.main, menu);
     }
 
-        // TODO: Rename and change types and number of parameters
-        public static MatchFragment newInstance() {
-            MatchFragment fragment = new MatchFragment();
-            return fragment;
-        }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -65,52 +71,56 @@ public class MatchFragment extends Fragment {
 
 
 
-        @Nullable
-        @Override
-        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.fragment_match,container,false);
-            FloatingActionMenu materialDesignFAM;
-            com.github.clans.fab.FloatingActionButton floatingActionButtonMatch;
-            com.github.clans.fab.FloatingActionButton floatingActionButtonSearch;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_match,container,false);
+        FloatingActionMenu materialDesignFAM;
+        com.github.clans.fab.FloatingActionButton floatingActionButtonMatch;
+        com.github.clans.fab.FloatingActionButton floatingActionButtonSearch;
 
 
 
-            matchRecyclerView = (RecyclerView) view.findViewById(R.id.matchesRecyclerView);
-            matchRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-            matchRecyclerView.setAdapter(new MatchAdapter(getContext(),getMatch()));
+        matchRecyclerView = (RecyclerView) view.findViewById(R.id.matchesRecyclerView);
+        matchRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        matchRecyclerView.setAdapter(new MatchAdapter(getContext(),getMatch()));
 
-            materialDesignFAM = (FloatingActionMenu) view.findViewById(R.id.menu);
-            floatingActionButtonMatch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.add_match);
-            floatingActionButtonSearch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.button_search);
+        materialDesignFAM = (FloatingActionMenu) view.findViewById(R.id.menu);
+        floatingActionButtonMatch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.add_match);
+        floatingActionButtonSearch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.button_search);
 
-            floatingActionButtonSearch.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
+        floatingActionButtonSearch.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
-                    startActivity(new Intent(v.getContext(), MatchSearchActivity.class));
+                startActivity(new Intent(v.getContext(), MatchSearchActivity.class));
 
-                }
-            });
-
-            setHasOptionsMenu(true);
-
-            return view;
-        }
-
-
-        private List<Match> getMatch(){
-            List<Match> results = new ArrayList<>();
-            for (int i = 0; i < 20; i++) {
-                Match matches = new Match();
-                matches.setTeamOne("Team Name One " + i);
-                matches.setTeamTwo("Team Name Two " + i);
-                matches.setAvailableSite(i);
-
-                results.add(matches);
             }
-            return results;
-        }
+        });
 
+        setHasOptionsMenu(true);
 
-
-
+        return view;
     }
+
+
+
+
+    private List<Match> getMatch(){
+        List<Match> results = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Match matches = new Match();
+            int type = new Random().nextInt(3)+1;
+
+            matches.setTeamOne("Team Name One " + i + " " + type);
+            matches.setTeamTwo("Team Name Two " + i);
+            matches.setAvailableSite(i);
+            matches.setSport(type);
+            results.add(matches);
+        }
+        return results;
+    }
+
+
+
+
+}

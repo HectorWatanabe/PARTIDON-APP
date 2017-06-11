@@ -10,13 +10,9 @@ import android.view.MenuItem;
 
 import pe.edu.upc.partidon.Adapters.SectionsPageAdapter;
 import pe.edu.upc.partidon.R;
-import pe.edu.upc.partidon.fragments.BasketballSearchMatchFragment;
-import pe.edu.upc.partidon.fragments.BasketballSearchTeamFragment;
+import pe.edu.upc.partidon.fragments.SearchTeamFragment;
 import pe.edu.upc.partidon.fragments.MatchScoreFragment;
-import pe.edu.upc.partidon.fragments.SoccerSearchTeamFragment;
-import pe.edu.upc.partidon.fragments.TennisSearchMatchFragment;
-import pe.edu.upc.partidon.fragments.SoccerSearchMatchFragment;
-import pe.edu.upc.partidon.fragments.TennisSearchTeamFragment;
+import pe.edu.upc.partidon.models.Team;
 
 public class TeamSearchActivity extends AppCompatActivity {
 
@@ -59,12 +55,9 @@ public class TeamSearchActivity extends AppCompatActivity {
         private void setupViewPager(ViewPager viewPager) {
             SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
             adapter.addFragment(new MatchScoreFragment(), "");
-
-            adapter.addFragment(new SoccerSearchTeamFragment(), "");
-
-            adapter.addFragment(new TennisSearchTeamFragment(), "");
-
-            adapter.addFragment(new BasketballSearchTeamFragment(), "");
+            adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Soccer), "");
+            adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Basket), "");
+            adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Tennis), "");
             viewPager.setAdapter(adapter);
         }
 

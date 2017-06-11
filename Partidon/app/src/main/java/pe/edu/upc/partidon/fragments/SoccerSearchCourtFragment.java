@@ -22,7 +22,7 @@ import pe.edu.upc.partidon.models.Court;
 import pe.edu.upc.partidon.models.Match;
 
 public class SoccerSearchCourtFragment extends Fragment {
-        private static final String TAG = "SoccerSearchMatchFragment";
+        private static final String TAG = "SoccerSearchCourtFragment";
         private RecyclerView soccerSearchCourtRecyclerView;
 
 

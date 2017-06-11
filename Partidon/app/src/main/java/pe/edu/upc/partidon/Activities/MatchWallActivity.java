@@ -1,8 +1,9 @@
 package pe.edu.upc.partidon.Activities;
 
+import android.content.DialogInterface;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,7 +18,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import pe.edu.upc.partidon.Adapters.SectionsPageAdapter;
 import pe.edu.upc.partidon.R;
@@ -26,6 +32,7 @@ import pe.edu.upc.partidon.fragments.InformationCourtFragment;
 import pe.edu.upc.partidon.fragments.MatchInformationWallFragment;
 import pe.edu.upc.partidon.fragments.MatchScoreFragment;
 import pe.edu.upc.partidon.fragments.WallCourtFragment;
+import pe.edu.upc.partidon.views.PostDialog;
 
 public class MatchWallActivity extends AppCompatActivity {
 
@@ -34,6 +41,7 @@ public class MatchWallActivity extends AppCompatActivity {
         private SectionsPageAdapter mSectionsPagerAdapter;
 
         private ViewPager mViewPager;
+        private FloatingActionMenu menu;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +61,7 @@ public class MatchWallActivity extends AppCompatActivity {
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
             tabLayout.setupWithViewPager(mViewPager);
 
+            menu = (FloatingActionMenu) findViewById(R.id.menu);
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -79,6 +88,21 @@ public class MatchWallActivity extends AppCompatActivity {
 
 
             return super.onOptionsItemSelected(item);
+        }
+
+        public void createMatchPost(View view){
+            PostDialog.show(this, new PostDialog.Callback() {
+                @Override
+                public void onComplete(String content) {
+                    Toast.makeText(getApplicationContext(),content,Toast.LENGTH_SHORT).show();
+                    menu.close(true);
+                }
+
+                @Override
+                public void onClose() {
+                    menu.close(true);
+                }
+            });
         }
 
         /**

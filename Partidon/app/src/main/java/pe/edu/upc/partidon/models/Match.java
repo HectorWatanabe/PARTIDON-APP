@@ -8,6 +8,23 @@ import java.util.Date;
 
 public class Match {
 
+    public enum Type{
+        None(-1), Basket(1), Soccer(2), Tennis(3);
+        private int type;
+        Type(int type) {
+            this.type = type;
+        }
+        public int getType() { return type; }
+        public static Type from(int type){
+            switch (type){
+                case 1: return Basket;
+                case 2: return Soccer;
+                case 3: return Tennis;
+                default: return None;
+            }
+        }
+    }
+
     private int idMatch;
     private String teamOne;
     private String teamTwo;
@@ -75,5 +92,9 @@ public class Match {
     public Match setAvailableSite(int availableSite) {
         this.availableSite = availableSite;
         return this;
+    }
+
+    public Type getType(){
+        return Type.from(sport);
     }
 }

@@ -10,10 +10,10 @@ import android.view.MenuItem;
 
 import pe.edu.upc.partidon.Adapters.SectionsPageAdapter;
 import pe.edu.upc.partidon.R;
-import pe.edu.upc.partidon.fragments.BasketballSearchMatchFragment;
+import pe.edu.upc.partidon.fragments.MatchFragment;
 import pe.edu.upc.partidon.fragments.MatchScoreFragment;
-import pe.edu.upc.partidon.fragments.TennisSearchMatchFragment;
-import pe.edu.upc.partidon.fragments.SoccerSearchMatchFragment;
+import pe.edu.upc.partidon.fragments.SearchMatchFragment;
+import pe.edu.upc.partidon.models.Match;
 
 public class MatchSearchActivity extends AppCompatActivity {
 
@@ -56,12 +56,9 @@ public class MatchSearchActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new MatchScoreFragment(), "");
-
-        adapter.addFragment(new SoccerSearchMatchFragment(), "");
-
-        adapter.addFragment(new TennisSearchMatchFragment(), "");
-
-        adapter.addFragment(new BasketballSearchMatchFragment(), "");
+        adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Soccer), "");
+        adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Basket), "");
+        adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Tennis), "");
         viewPager.setAdapter(adapter);
     }
 

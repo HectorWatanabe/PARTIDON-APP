@@ -1,21 +1,13 @@
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:fillViewport="true"
     android:layout_gravity="fill_vertical"
-    >
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="pe.edu.upc.partidon.fragments.InformationCourtFragment"
-
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
 
     <android.support.constraint.ConstraintLayout
@@ -403,5 +395,4 @@
 
     </android.support.constraint.ConstraintLayout>
 
-</FrameLayout>
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

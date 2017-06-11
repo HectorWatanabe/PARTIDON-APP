@@ -270,6 +270,7 @@
             fab:fab_colorNormal="#26a69a"
             fab:fab_colorPressed="#26a69a"
             fab:fab_size="mini"
+            android:onClick="createMatchPost"
             fab:fab_label="Crear Publicación en Partido" />
 
     </com.github.clans.fab.FloatingActionMenu>

@@ -6,6 +6,23 @@ package pe.edu.upc.partidon.models;
 
 public class Team {
 
+    public enum Type{
+        None(-1), Basket(1), Soccer(2), Tennis(3);
+        private int type;
+        Type(int type) {
+            this.type = type;
+        }
+        public int getType() { return type; }
+        public static Team.Type from(int type){
+            switch (type){
+                case 1: return Basket;
+                case 2: return Soccer;
+                case 3: return Tennis;
+                default: return None;
+            }
+        }
+    }
+
     private int idTeam;
     private String teamName;
     private int sport;
@@ -66,5 +83,8 @@ public class Team {
     public Team setAvailableSiteTeam(int availableSiteTeam) {
         this.availableSiteTeam = availableSiteTeam;
         return  this;
+    }
+    public Team.Type getType(){
+        return Team.Type.from(sport);
     }
 }

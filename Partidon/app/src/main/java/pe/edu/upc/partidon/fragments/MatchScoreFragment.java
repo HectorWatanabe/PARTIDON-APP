@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.upc.partidon.Adapters.MatchAdapter;
 import pe.edu.upc.partidon.Adapters.ScoreAdapter;
 import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.models.Score;

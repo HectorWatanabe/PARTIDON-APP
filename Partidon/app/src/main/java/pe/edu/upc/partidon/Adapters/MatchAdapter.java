@@ -7,8 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.partidon.Activities.MatchWallActivity;
@@ -17,6 +19,8 @@ import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.models.Court;
 import pe.edu.upc.partidon.models.Match;
 
+import static pe.edu.upc.partidon.models.Match.Type.Basket;
+
 /**
  * Created by Desarrollo Infobox on 24/05/2017.
  */
@@ -24,10 +28,27 @@ import pe.edu.upc.partidon.models.Match;
 public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> {
         private Context context;
         private List<Match> matches;
+        private List<Match> filteredMatches;
+
+
 
         public MatchAdapter(Context context,@NonNull List<Match> matches){
             this.context = context;
             this.matches = matches;
+            this.filteredMatches = matches;
+        }
+
+        public void setFilter(Match.Type filter){
+            if (filter == Match.Type.None){
+                filteredMatches = matches;
+            }else{
+                filteredMatches = new ArrayList<>();
+                for(Match match : matches){
+                    if(match.getSport() == filter.getType())
+                        filteredMatches.add(match);
+                }
+            }
+            notifyDataSetChanged();
         }
 
         @Override
@@ -37,9 +58,10 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
 
         @Override
         public void onBindViewHolder(MatchAdapter.ViewHolder holder, int position) {
-            holder.teamOneTextView.setText(matches.get(position).getTeamOne());
-            holder.teamTwoTextView.setText(matches.get(position).getTeamTwo());
-            holder.availableSiteNumberTextView.setText(matches.get(position).getAvailableSiteAsString());
+            Match match = filteredMatches.get(position);
+            holder.teamOneTextView.setText(match.getTeamOne());
+            holder.teamTwoTextView.setText(match.getTeamTwo());
+            holder.availableSiteNumberTextView.setText(match.getAvailableSiteAsString());
             holder.matchContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -48,11 +70,17 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
                            }
             });
 
+            switch (match.getType()){
+                case Basket: holder.sportMatchImageView.setImageResource(R.drawable.basketball); break;
+                case Soccer: holder.sportMatchImageView.setImageResource(R.drawable.soccer_icon); break;
+                case Tennis: holder.sportMatchImageView.setImageResource(R.drawable.tennis_ball_icon); break;
+            }
+
         }
 
         @Override
         public int getItemCount() {
-            return matches.size();
+            return filteredMatches.size();
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,11 +88,13 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
             TextView teamTwoTextView;
             TextView availableSiteNumberTextView;
             View matchContainer;
+            ImageView sportMatchImageView;
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 teamOneTextView = (TextView) itemView.findViewById(R.id.teamOneTextView);
                 teamTwoTextView = (TextView) itemView.findViewById(R.id.teamTwoTextView);
+                sportMatchImageView = (ImageView) itemView.findViewById(R.id.sportMatchImageView);
                 availableSiteNumberTextView = (TextView) itemView.findViewById(R.id.availableSiteNumberTextView);
                 matchContainer = itemView.findViewById(R.id.matchContainer);
             }
