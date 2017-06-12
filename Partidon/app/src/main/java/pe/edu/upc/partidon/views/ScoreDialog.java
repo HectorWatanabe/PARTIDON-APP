@@ -6,25 +6,34 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.NumberPicker;
 
 import pe.edu.upc.partidon.R;
 
 /**
- * Created by brunoaybar on 10/06/2017.
+ * Created by user on 11/06/2017.
  */
 
-public class PostDialog {
+public class ScoreDialog {
 
     public interface Callback{
         void onComplete(String content);
         void onClose();
     }
 
-    public static void show(final Context context, final Callback callback){
+    public static void show(final Context context, final ScoreDialog.Callback callback){
 
-        View content = LayoutInflater.from(context).inflate(R.layout.dialog_post,null);
-        final EditText editText = (EditText) content.findViewById(R.id.dialogPostEditText);
+        View content = LayoutInflater.from(context).inflate(R.layout.dialog_score,null);
+        final NumberPicker oneTeam = (NumberPicker) content.findViewById(R.id.oneTeamNumberPicker);
+        final NumberPicker twoTeam = (NumberPicker) content.findViewById(R.id.twoTeamNumberPicker);
+        oneTeam.setMinValue(0);
+        twoTeam.setMinValue(0);
+
+        oneTeam.setMaxValue(10);
+        twoTeam.setMaxValue(10);
+        oneTeam.setWrapSelectorWheel(true);
+        twoTeam.setWrapSelectorWheel(true);
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Publicar");
@@ -32,7 +41,7 @@ public class PostDialog {
         builder.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                callback.onComplete(editText.getText().toString());
+                callback.onComplete(String.valueOf(twoTeam.getValue()));
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -43,5 +52,4 @@ public class PostDialog {
         });
         builder.show();
     }
-
 }

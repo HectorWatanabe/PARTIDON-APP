@@ -260,6 +260,7 @@
             android:src="@drawable/scoreboard"
             fab:fab_colorNormal="#0097a7"
             fab:fab_colorPressed="#0097a7"
+            android:onClick="createMatchScore"
             fab:fab_size="mini"
             fab:fab_label="Ingresar Marcador del Partido" />
         <com.github.clans.fab.FloatingActionButton

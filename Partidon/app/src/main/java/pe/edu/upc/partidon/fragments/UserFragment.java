@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +27,12 @@ import pe.edu.upc.partidon.datasource.UserRepository;
 import pe.edu.upc.partidon.models.NewsComments;
 import pe.edu.upc.partidon.models.Team;
 import pe.edu.upc.partidon.models.User;
+import pe.edu.upc.partidon.views.PostDialog;
 
 public class UserFragment extends Fragment {
         private static final String TAG = "UserFragment";
         private RecyclerView userRecyclerView;
-     private TextView nameUserTextView;
-
+        private TextView nameUserTextView;
      private UserRepository userRepository;
 
      public UserFragment() {
@@ -53,6 +56,8 @@ public class UserFragment extends Fragment {
             userRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             userRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getUserComment()));
 
+
+
             nameUserTextView = (TextView) view.findViewById(R.id.nameUserTextView);
 
             User user = userRepository.getUser();
@@ -61,9 +66,11 @@ public class UserFragment extends Fragment {
             }
 
 
-
             return view;
         }
+
+
+
 
 
      private List<NewsComments> getUserComment(){

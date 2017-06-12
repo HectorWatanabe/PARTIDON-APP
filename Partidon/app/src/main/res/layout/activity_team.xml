@@ -242,6 +242,7 @@
             android:src="@drawable/pencil"
             fab:fab_colorNormal="#26a69a"
             fab:fab_colorPressed="#26a69a"
+            android:onClick="createTeamPost"
             fab:fab_size="mini"
             fab:fab_label="Crear Publicación en Equipo" />
 

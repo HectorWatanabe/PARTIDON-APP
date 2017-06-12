@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +26,14 @@ import pe.edu.upc.partidon.datasource.UserRepository;
 import pe.edu.upc.partidon.fragments.UserFragment;
 import pe.edu.upc.partidon.models.NewsComments;
 import pe.edu.upc.partidon.models.User;
+import pe.edu.upc.partidon.views.PostDialog;
 
 public class TeamActivity extends AppCompatActivity {
 
 
     private static final String TAG = "TeamActivity";
     private RecyclerView teamWallRecyclerView;
+    private FloatingActionMenu menu;
 
 
     public TeamActivity() {
@@ -50,6 +55,8 @@ public class TeamActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        menu = (FloatingActionMenu) findViewById(R.id.menu);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -79,6 +86,20 @@ public class TeamActivity extends AppCompatActivity {
     }
 
 
+    public void createTeamPost(View view){
+        PostDialog.show(this, new PostDialog.Callback() {
+            @Override
+            public void onComplete(String content) {
+                Toast.makeText(getApplicationContext(),content,Toast.LENGTH_SHORT).show();
+                menu.close(true);
+            }
+
+            @Override
+            public void onClose() {
+                menu.close(true);
+            }
+        });
+    }
 
 
     private List<NewsComments> getUserComment(){

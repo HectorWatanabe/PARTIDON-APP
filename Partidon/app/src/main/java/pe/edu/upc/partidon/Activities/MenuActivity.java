@@ -10,8 +10,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +27,7 @@ import pe.edu.upc.partidon.fragments.MatchFragment;
 import pe.edu.upc.partidon.fragments.NewsFragment;
 import pe.edu.upc.partidon.fragments.TeamsFragment;
 import pe.edu.upc.partidon.fragments.UserFragment;
+import pe.edu.upc.partidon.views.PostDialog;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -30,6 +35,7 @@ public class MenuActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TextView mTextMessage;
     private FrameLayout frameLayout;
+    private FloatingActionMenu menuUser;
 
 
   //  public boolean onCreateOptionsMenu(Menu menu)
@@ -79,6 +85,10 @@ public class MenuActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
+
+
+
         replaceFragment(0);
 
     }
@@ -90,6 +100,27 @@ public class MenuActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
+
+    public void createUserWallPost(View view){
+        menuUser = (FloatingActionMenu) findViewById(R.id.menuUser);
+        PostDialog.show(this, new PostDialog.Callback() {
+            @Override
+            public void onComplete(String content) {
+
+                Toast.makeText(getApplicationContext(),content,Toast.LENGTH_SHORT).show();
+                menuUser.close(true);
+            }
+
+            @Override
+            public void onClose() {
+
+                menuUser.close(true);
+            }
+        });
+    }
+
+
+
 
 
     private List<Fragment> mFragments;

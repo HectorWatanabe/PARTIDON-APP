@@ -33,6 +33,7 @@ import pe.edu.upc.partidon.fragments.MatchInformationWallFragment;
 import pe.edu.upc.partidon.fragments.MatchScoreFragment;
 import pe.edu.upc.partidon.fragments.WallCourtFragment;
 import pe.edu.upc.partidon.views.PostDialog;
+import pe.edu.upc.partidon.views.ScoreDialog;
 
 public class MatchWallActivity extends AppCompatActivity {
 
@@ -104,6 +105,21 @@ public class MatchWallActivity extends AppCompatActivity {
                 }
             });
         }
+
+    public void createMatchScore(View view){
+        ScoreDialog.show(this, new ScoreDialog.Callback() {
+            @Override
+            public void onComplete(String content) {
+                Toast.makeText(getApplicationContext(),content,Toast.LENGTH_SHORT).show();
+                menu.close(true);
+            }
+
+            @Override
+            public void onClose() {
+                menu.close(true);
+            }
+        });
+    }
 
         /**
          * A placeholder fragment containing a simple view.
