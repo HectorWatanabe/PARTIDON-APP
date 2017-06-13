@@ -20,4 +20,6 @@
     <string name="title_activity_match_search">MatchSearchActivity</string>
     <string name="title_activity_team_search">TeamSearchActivity</string>
     <string name="title_activity_court_search">CourtSearchActivity</string>
+    <string name="title_activity_player_list">PlayerListActivity</string>
+    <string name="title_activity_list_player">ListPlayerActivity</string>
 </resources>

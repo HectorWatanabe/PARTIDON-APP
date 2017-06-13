@@ -1,6 +1,7 @@
 package pe.edu.upc.partidon.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,9 @@ public class TeamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team);
 
+
+        com.github.clans.fab.FloatingActionButton floatingActionButtonPlayersTeam;
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -65,6 +69,16 @@ public class TeamActivity extends AppCompatActivity {
         teamWallRecyclerView = (RecyclerView) findViewById(R.id.teamWallRecyclerView);
         teamWallRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         teamWallRecyclerView.setAdapter(new NewsFeedAdapter(this,getUserComment()));
+
+        floatingActionButtonPlayersTeam = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.view_player);
+
+        floatingActionButtonPlayersTeam.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                startActivity(new Intent(v.getContext(), PlayerListActivity.class));
+
+            }
+        });
 
 
     }

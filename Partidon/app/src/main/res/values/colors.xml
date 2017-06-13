@@ -8,5 +8,7 @@
     <color name="ColorSecondaryText">#757575</color>
     <color name="ColorIcons">#FFFFFF</color>
     <color name="ColorDivider">#BDBDBD</color>
+    <color name="duskYellow">#ffea00</color>
+    <color name="lightGrey">#ffea00</color>
 
 </resources>

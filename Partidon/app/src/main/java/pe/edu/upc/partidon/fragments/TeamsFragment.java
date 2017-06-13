@@ -15,6 +15,7 @@ import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import pe.edu.upc.partidon.Activities.MatchSearchActivity;
 import pe.edu.upc.partidon.Activities.TeamSearchActivity;
@@ -72,9 +73,10 @@ public class TeamsFragment extends Fragment {
         List<Team> results = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Team teams = new Team();
+            int type = new Random().nextInt(3)+1;
             teams.setTeamName("Team Name One " + i);
             teams.setAvailableSiteTeam(i);
-
+            teams.setSport(type);
             results.add(teams);
         }
         return results;

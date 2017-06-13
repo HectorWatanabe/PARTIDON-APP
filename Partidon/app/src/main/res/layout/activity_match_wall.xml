@@ -244,6 +244,15 @@
         fab:menu_openDirection="up"
         fab:menu_backgroundColor="@android:color/transparent">
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/deleteMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cancel_music"
+            fab:fab_colorNormal="#b71c1c"
+            fab:fab_colorPressed="#b71c1c"
+            fab:fab_size="mini"
+            fab:fab_label="Eliminar Partido" />
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/configuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

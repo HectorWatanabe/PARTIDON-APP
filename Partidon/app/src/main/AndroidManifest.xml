@@ -50,8 +50,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
-
-
         </activity>
         <activity
             android:name=".Activities.CourtSearchActivity"
@@ -62,6 +60,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
         </activity>
+        <activity
+            android:name=".Activities.PlayerListActivity"
+            android:label="Jugadores del Equipo"
+            android:parentActivityName=".Activities.TeamActivity" />
     </application>
 
 </manifest>

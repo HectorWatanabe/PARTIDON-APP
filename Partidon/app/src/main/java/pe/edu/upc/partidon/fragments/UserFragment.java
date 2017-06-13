@@ -1,16 +1,17 @@
 package pe.edu.upc.partidon.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,19 +21,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.partidon.Adapters.NewsFeedAdapter;
-import pe.edu.upc.partidon.Adapters.TeamAdapter;
-import pe.edu.upc.partidon.Adapters.UserAdapter;
 import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.datasource.UserRepository;
 import pe.edu.upc.partidon.models.NewsComments;
-import pe.edu.upc.partidon.models.Team;
 import pe.edu.upc.partidon.models.User;
-import pe.edu.upc.partidon.views.PostDialog;
+import pe.edu.upc.partidon.views.RankDialog;
 
 public class UserFragment extends Fragment {
         private static final String TAG = "UserFragment";
         private RecyclerView userRecyclerView;
         private TextView nameUserTextView;
+        private RatingBar userRatingBar;
+
      private UserRepository userRepository;
 
      public UserFragment() {
@@ -55,6 +55,27 @@ public class UserFragment extends Fragment {
             userRecyclerView = (RecyclerView) view.findViewById(R.id.userRecyclerView);
             userRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             userRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getUserComment()));
+
+            userRatingBar = (RatingBar) view.findViewById(R.id.userRatingBar);
+            userRatingBar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    RankDialog.show(getContext(),new RankDialog.Callback(){
+
+
+                        @Override
+                        public void onComplete(String content) {
+                            Toast.makeText(getContext(),content,Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onClose() {
+
+                        }
+                    });
+
+                }
+            });
 
 
 
