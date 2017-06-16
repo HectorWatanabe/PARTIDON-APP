@@ -20,6 +20,10 @@ import com.github.clans.fab.FloatingActionMenu;
 import java.util.ArrayList;
 import java.util.List;
 
+import pe.edu.upc.partidon.Activities.ConfigurationUserActivity;
+import pe.edu.upc.partidon.Activities.FriendListActivity;
+import pe.edu.upc.partidon.Activities.NotificationActivity;
+import pe.edu.upc.partidon.Activities.PlayerListActivity;
 import pe.edu.upc.partidon.Adapters.NewsFeedAdapter;
 import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.datasource.UserRepository;
@@ -31,7 +35,7 @@ public class UserFragment extends Fragment {
         private static final String TAG = "UserFragment";
         private RecyclerView userRecyclerView;
         private TextView nameUserTextView;
-        private RatingBar userRatingBar;
+        private FloatingActionMenu menu;
 
      private UserRepository userRepository;
 
@@ -56,29 +60,6 @@ public class UserFragment extends Fragment {
             userRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             userRecyclerView.setAdapter(new NewsFeedAdapter(getContext(),getUserComment()));
 
-            userRatingBar = (RatingBar) view.findViewById(R.id.userRatingBar);
-            userRatingBar.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-
-                    RankDialog.show(getContext(),new RankDialog.Callback(){
-
-
-                        @Override
-                        public void onComplete(String content) {
-                            Toast.makeText(getContext(),content,Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onClose() {
-
-                        }
-                    });
-
-                }
-            });
-
-
-
             nameUserTextView = (TextView) view.findViewById(R.id.nameUserTextView);
 
             User user = userRepository.getUser();
@@ -86,6 +67,42 @@ public class UserFragment extends Fragment {
                 nameUserTextView.setText(user.getNameUser());
             }
 
+
+            com.github.clans.fab.FloatingActionButton floatingActionButtonFriendsUser;
+            com.github.clans.fab.FloatingActionButton floatingActionButtonConfigurationUser;
+            com.github.clans.fab.FloatingActionButton floatingActionButtonNotificationUser;
+            menu = (FloatingActionMenu) view.findViewById(R.id.menu);
+
+
+            floatingActionButtonFriendsUser = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.menu_friends);
+            floatingActionButtonConfigurationUser = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.configuration);
+            floatingActionButtonNotificationUser = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.notification);
+
+            floatingActionButtonFriendsUser.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    startActivity(new Intent(v.getContext(), FriendListActivity.class));
+
+                }
+            });
+
+            floatingActionButtonConfigurationUser.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    startActivity(new Intent(v.getContext(), ConfigurationUserActivity.class));
+
+                }
+            });
+
+            floatingActionButtonNotificationUser.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+
+                    startActivity(new Intent(v.getContext(), NotificationActivity.class));
+
+                }
+            });
+
+            setHasOptionsMenu(true);
 
             return view;
         }

@@ -64,6 +64,42 @@
             android:name=".Activities.PlayerListActivity"
             android:label="Jugadores del Equipo"
             android:parentActivityName=".Activities.TeamActivity" />
+        <activity
+            android:name=".Activities.FriendListActivity"
+            android:label="Circulo de Amigos"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Activities.ConfigurationUserActivity"
+            android:label="Configuracion de Cuenta"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Activities.NotificationActivity"
+            android:label="Notificaciones"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".Activities.MatchCreateActivity"
+            android:label="@string/title_activity_match_create"
+            android:parentActivityName=".Activities.MatchWallActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MatchWallActivity" />
+        </activity>
     </application>
 
 </manifest>

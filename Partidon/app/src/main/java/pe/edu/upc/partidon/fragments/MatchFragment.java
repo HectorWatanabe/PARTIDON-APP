@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import pe.edu.upc.partidon.Activities.MatchCreateActivity;
 import pe.edu.upc.partidon.Activities.MatchSearchActivity;
 import pe.edu.upc.partidon.Activities.MenuActivity;
 import pe.edu.upc.partidon.Adapters.CourtAdapter;
@@ -33,8 +34,9 @@ import pe.edu.upc.partidon.models.Match;
 
 
 public class MatchFragment extends Fragment {
-    private static final String TAG = "NewFragment";
+    private static final String TAG = "MatchFragment";
     private RecyclerView matchRecyclerView;
+    private FloatingActionMenu menu;
 
 
     public MatchFragment() {
@@ -76,8 +78,8 @@ public class MatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_match,container,false);
         FloatingActionMenu materialDesignFAM;
-        com.github.clans.fab.FloatingActionButton floatingActionButtonMatch;
         com.github.clans.fab.FloatingActionButton floatingActionButtonSearch;
+        com.github.clans.fab.FloatingActionButton floatingActionButtonCreateMatch;
 
 
 
@@ -86,13 +88,22 @@ public class MatchFragment extends Fragment {
         matchRecyclerView.setAdapter(new MatchAdapter(getContext(),getMatch()));
 
         materialDesignFAM = (FloatingActionMenu) view.findViewById(R.id.menu);
-        floatingActionButtonMatch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.add_match);
+        floatingActionButtonCreateMatch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.add_match);
         floatingActionButtonSearch = (com.github.clans.fab.FloatingActionButton) view.findViewById(R.id.button_search);
 
         floatingActionButtonSearch.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 startActivity(new Intent(v.getContext(), MatchSearchActivity.class));
+
+            }
+        });
+
+
+        floatingActionButtonCreateMatch.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                startActivity(new Intent(v.getContext(), MatchCreateActivity.class));
 
             }
         });

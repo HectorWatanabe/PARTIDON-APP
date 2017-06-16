@@ -1,6 +1,7 @@
 package pe.edu.upc.partidon.Activities;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -63,6 +64,7 @@ public class MatchWallActivity extends AppCompatActivity {
             tabLayout.setupWithViewPager(mViewPager);
 
             menu = (FloatingActionMenu) findViewById(R.id.menu);
+
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

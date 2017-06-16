@@ -22,4 +22,8 @@
     <string name="title_activity_court_search">CourtSearchActivity</string>
     <string name="title_activity_player_list">PlayerListActivity</string>
     <string name="title_activity_list_player">ListPlayerActivity</string>
+    <string name="title_activity_friend_list">FriendListActivity</string>
+    <string name="title_activity_configuration_user">ConfigurationUserActivity</string>
+    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_match_create">MatchCreateActivity</string>
 </resources>

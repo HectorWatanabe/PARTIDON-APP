@@ -60,7 +60,7 @@ public class TeamActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        menu = (FloatingActionMenu) findViewById(R.id.menu);
+        menu = (FloatingActionMenu) findViewById(R.id.menuUser);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

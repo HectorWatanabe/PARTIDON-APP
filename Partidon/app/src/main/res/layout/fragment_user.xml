@@ -188,6 +188,16 @@
             fab:fab_label="Configuración de Cuenta" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/notification_icon"
+            fab:fab_colorNormal="#00838f"
+            fab:fab_colorPressed="#00838f"
+            fab:fab_size="mini"
+            fab:fab_label="Notificaciones" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_friends"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
