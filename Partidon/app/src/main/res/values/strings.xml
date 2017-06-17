@@ -26,4 +26,5 @@
     <string name="title_activity_configuration_user">ConfigurationUserActivity</string>
     <string name="title_activity_notification">NotificationActivity</string>
     <string name="title_activity_match_create">MatchCreateActivity</string>
+    <string name="title_activity_team_creat">TeamCreatActivity</string>
 </resources>

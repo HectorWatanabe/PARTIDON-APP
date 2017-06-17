@@ -93,12 +93,21 @@
         </activity>
         <activity
             android:name=".Activities.MatchCreateActivity"
-            android:label="@string/title_activity_match_create"
+            android:label="Crear Partido"
             android:parentActivityName=".Activities.MatchWallActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.partidon.Activities.MatchWallActivity" />
+        </activity>
+        <activity
+            android:name=".Activities.TeamCreatActivity"
+            android:label="Crear Equipo"
+            android:parentActivityName=".Activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.partidon.Activities.MenuActivity" />
         </activity>
     </application>
 
