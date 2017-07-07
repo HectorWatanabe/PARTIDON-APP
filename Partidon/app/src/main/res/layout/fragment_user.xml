@@ -191,15 +191,7 @@
         fab:menu_backgroundColor="@android:color/transparent"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp">
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/deleteUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/cancel_music"
-            fab:fab_colorNormal="#b71c1c"
-            fab:fab_colorPressed="#b71c1c"
-            fab:fab_size="mini"
-            fab:fab_label="Eliminar Cuenta" />
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/configuration"
             android:layout_width="wrap_content"

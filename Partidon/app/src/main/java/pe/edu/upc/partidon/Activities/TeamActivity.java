@@ -93,7 +93,6 @@ public class TeamActivity extends AppCompatActivity {
 
 
         floatingActionButtonPlayersTeam = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.view_player);
-        floatingActionButtonDeleteTeam = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.deleteTeam);
 
         floatingActionButtonPlayersTeam.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
