@@ -32,17 +32,19 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/nameMatchTextInputLayout"
-            android:layout_width="368dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:hint="Nombre del Partido:"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColorLink="@color/colorPrimaryDark"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginRight="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/nameMatchTextInputEditText"
@@ -54,75 +56,49 @@
         </android.support.design.widget.TextInputLayout>
 
 
-
-
-
-
         <android.support.design.widget.TextInputLayout
             android:id="@+id/locationMatchTextInputLayout"
-            android:layout_width="368dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Lugar del Partido:"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/nameMatchTextInputLayout"
+            android:hint="Lugar del Partido:"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColorLink="@color/colorPrimaryDark"
-            android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameMatchTextInputLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/locationMatchTextInputEditText"
-                android:layout_width="368dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimaryDark"
-                android:textColorLink="@color/colorPrimaryDark"/>
+                android:textColorLink="@color/colorPrimaryDark" />
 
         </android.support.design.widget.TextInputLayout>
 
-
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/teamOneTextInputLayout"
-            android:layout_width="368dp"
+            android:id="@+id/distritMatchTextInputLayout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Ingrese el Equipo 1:"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
+            android:hint="Distrito:"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/locationMatchTextInputLayout"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorLink="@color/colorPrimaryDark"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent">
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
             <android.support.design.widget.TextInputEditText
-                android:id="@+id/teamOneTextInputEditText"
-                android:layout_width="368dp"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textColorLink="@color/colorPrimaryDark"/>
-
-        </android.support.design.widget.TextInputLayout>
-
-
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/teamTwoTextInputLayout"
-            android:layout_width="368dp"
-            android:layout_height="wrap_content"
-            android:hint="Ingrese el Equipo 2:"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/teamOneTextInputLayout"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:textColorLink="@color/colorPrimaryDark"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/teamTwoTextInputEditText"
+                android:id="@+id/distritMatchTextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorPrimaryDark"
@@ -131,20 +107,75 @@
         </android.support.design.widget.TextInputLayout>
 
 
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/teamOneTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="Ingrese el Equipo 1:"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/distritMatchTextInputLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/teamOneTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="datetime"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColorLink="@color/colorPrimaryDark" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/teamTwoTextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:hint="Ingrese el Equipo 2:"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorPrimaryDark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teamOneTextInputLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/teamTwoTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="datetime"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textColorLink="@color/colorPrimaryDark" />
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/dateTextInputLayout"
-            android:layout_width="368dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Fecha:"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/teamTwoTextInputLayout"
+            android:hint="Fecha:"
             android:textColorHint="@color/colorPrimaryDark"
             android:textColorLink="@color/colorPrimaryDark"
-            android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/teamTwoTextInputLayout"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/dateTextInputEditText"

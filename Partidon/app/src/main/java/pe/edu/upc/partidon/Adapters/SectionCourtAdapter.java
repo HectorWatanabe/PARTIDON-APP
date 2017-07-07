@@ -1,8 +1,6 @@
 package pe.edu.upc.partidon.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import pe.edu.upc.partidon.Activities.WallCourtActivity;
 import pe.edu.upc.partidon.R;
-import pe.edu.upc.partidon.models.Court;
 import pe.edu.upc.partidon.models.CourtSection;
 
 
@@ -34,10 +30,13 @@ public class SectionCourtAdapter extends RecyclerView.Adapter<SectionCourtAdapte
 
     @Override
     public void onBindViewHolder(SectionCourtAdapter.ViewHolder holder, int position) {
-        holder.titleSectionCourtTextView.setText(sectioncourts.get(position).getTitle());
-        holder.tipeCourtInputTextView.setText(sectioncourts.get(position).getTipe());
+        holder.titleSectionCourtTextView.setText(sectioncourts.get(position).getIdAsString());
+        holder.tipeCourtInputTextView.setText(sectioncourts.get(position).getType());
         holder.metreCourtInputTextView.setText(sectioncourts.get(position).getMetre());
-        holder.chairCourtInputTextView.setText(sectioncourts.get(position).getChair());
+        String chair;
+        if(sectioncourts.get(position).getChair()== Boolean.TRUE)
+        {chair = "No";}else{chair = "Si";}
+        holder.chairCourtInputTextView.setText(chair);
         holder.priceCourtInputTextView.setText(sectioncourts.get(position).getPriceAsString());
         holder.saleCourtInputTextView.setText(sectioncourts.get(position).getSaleAsString());
     }

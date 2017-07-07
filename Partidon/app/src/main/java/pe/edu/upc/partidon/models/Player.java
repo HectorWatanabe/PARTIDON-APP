@@ -1,31 +1,33 @@
 package pe.edu.upc.partidon.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Hector on 11/06/2017.
  */
 
 public class Player {
 
+    @SerializedName("id")
     int id_player;
-    String name;
-    String email;
-    String address;
-    String icon;
+    @SerializedName("score")
+    int score;
+    @SerializedName("user")
+    User user;
 
     public Player() {
     }
 
-    public Player(int id_player, String name, String email, String address, String icon) {
+    public Player(int id_player, int score, User user) {
         this.id_player = id_player;
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.icon = icon;
+        this.score = score;
+        this.user = user;
     }
 
     public int getId_player() {
         return id_player;
     }
+
     public String getId_playerAsString() {
         return String.format("%d", id_player);
     }
@@ -34,35 +36,24 @@ public class Player {
         this.id_player = id_player;
     }
 
-    public String getName() {
-        return name;
+    public int getScore() {
+        return score;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    public String getScoreAsString() {
+        return String.format("%d", score);
     }
 
-    public String getEmail() {
-        return email;
+    public void setScore(int score) {
+        this.score = score;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public User getUser() {
+        return user;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

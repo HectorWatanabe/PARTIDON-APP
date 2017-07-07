@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.NumberPicker;
 
 import pe.edu.upc.partidon.R;
@@ -17,7 +16,7 @@ import pe.edu.upc.partidon.R;
 public class ScoreDialog {
 
     public interface Callback{
-        void onComplete(String content);
+        void onComplete(String contentone,String contenttwo);
         void onClose();
     }
 
@@ -41,7 +40,7 @@ public class ScoreDialog {
         builder.setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                callback.onComplete(String.valueOf(twoTeam.getValue()));
+                callback.onComplete(String.valueOf(oneTeam.getValue()),String.valueOf(twoTeam.getValue()));
             }
         });
         builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

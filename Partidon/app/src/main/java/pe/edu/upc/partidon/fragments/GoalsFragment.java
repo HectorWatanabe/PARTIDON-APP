@@ -50,8 +50,6 @@ public class GoalsFragment extends Fragment {
         List<Score> results = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Score scores = new Score();
-            scores.setUser_name("Maria Fernanda Segovia Chacón " + i);
-            scores.setTitle_match("Universidad Vs Instituto " + i);
             results.add(scores);
         }
         return results;

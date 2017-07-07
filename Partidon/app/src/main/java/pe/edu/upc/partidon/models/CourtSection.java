@@ -1,34 +1,50 @@
 package pe.edu.upc.partidon.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by user on 28/05/2017.
  */
 
 public class CourtSection {
 
+    @SerializedName("id")
     private int id;
-    private String title;
-    private String tipe;
+    @SerializedName("material")
+    private String type;
+    @SerializedName("size")
     private String metre;
-    private String chair;
+    @SerializedName("seat")
+    private Boolean chair;
+    @SerializedName("price")
     private double price;
+    @SerializedName("offer")
     private double sale;
+    @SerializedName("image1")
+    private String image1;
+    @SerializedName("image2")
+    private String image2;
 
     public CourtSection() {
     }
 
-    public CourtSection(int id, String title, String tipe, String metre, String chair, double price, double sale) {
+    public CourtSection(int id, String type, String metre, Boolean chair, double price, double sale, String image1, String image2) {
         this.id = id;
-        this.title = title;
-        this.tipe = tipe;
+        this.type = type;
         this.metre = metre;
         this.chair = chair;
         this.price = price;
         this.sale = sale;
+        this.image1 = image1;
+        this.image2 = image2;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getIdAsString() {
+        return String.format("%d", id);
     }
 
     public CourtSection setId(int id) {
@@ -36,21 +52,12 @@ public class CourtSection {
         return this;
     }
 
-    public String getTitle() {
-        return title;
+    public String getType() {
+        return type;
     }
 
-    public CourtSection setTitle(String title) {
-        this.title = title;
-        return this;
-    }
-
-    public String getTipe() {
-        return tipe;
-    }
-
-    public CourtSection setTipe(String tipe) {
-        this.tipe = tipe;
+    public CourtSection setType(String type) {
+        this.type = type;
         return this;
     }
 
@@ -63,11 +70,11 @@ public class CourtSection {
         return this;
     }
 
-    public String getChair() {
+    public Boolean getChair() {
         return chair;
     }
 
-    public CourtSection setChair(String chair) {
+    public CourtSection setChair(Boolean chair) {
         this.chair = chair;
         return this;
     }
@@ -95,5 +102,21 @@ public class CourtSection {
     public CourtSection setSale(double sale) {
         this.sale = sale;
         return this;
+    }
+
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
     }
 }

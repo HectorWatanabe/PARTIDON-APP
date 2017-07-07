@@ -2,6 +2,7 @@ package pe.edu.upc.partidon.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,12 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.partidon.Activities.MatchWallActivity;
-import pe.edu.upc.partidon.Activities.TeamActivity;
 import pe.edu.upc.partidon.R;
-import pe.edu.upc.partidon.models.Court;
 import pe.edu.upc.partidon.models.Match;
-
-import static pe.edu.upc.partidon.models.Match.Type.Basket;
 
 /**
  * Created by Desarrollo Infobox on 24/05/2017.
@@ -58,14 +55,16 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
 
         @Override
         public void onBindViewHolder(MatchAdapter.ViewHolder holder, int position) {
-            Match match = filteredMatches.get(position);
-            holder.teamOneTextView.setText(match.getTeamOne());
-            holder.teamTwoTextView.setText(match.getTeamTwo());
-            holder.availableSiteNumberTextView.setText(match.getAvailableSiteAsString());
+            final Match match = filteredMatches.get(position);
+            holder.teamOneTextView.setText(match.getTitle());
+            holder.teamTwoTextView.setText(match.getDistrict());
             holder.matchContainer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(context, MatchWallActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("match_id",match.getIdMatch());
+                    i.putExtras(bundle);
                     context.startActivity(i);
                            }
             });
@@ -74,6 +73,14 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
                 case Basket: holder.sportMatchImageView.setImageResource(R.drawable.basketball); break;
                 case Soccer: holder.sportMatchImageView.setImageResource(R.drawable.soccer_icon); break;
                 case Tennis: holder.sportMatchImageView.setImageResource(R.drawable.tennis_ball_icon); break;
+            }
+
+            switch(match.getIcon_image())
+            {
+                case "default_match_1": holder.photoImageView.setImageResource(R.drawable.default_match_1); break;
+                case "default_match_2": holder.photoImageView.setImageResource(R.drawable.default_match_2); break;
+                case "default_match_3": holder.photoImageView.setImageResource(R.drawable.default_match_3); break;
+                default: holder.photoImageView.setImageResource(R.drawable.all); break;
             }
 
         }
@@ -86,16 +93,16 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
         public class ViewHolder extends RecyclerView.ViewHolder {
             TextView teamOneTextView;
             TextView teamTwoTextView;
-            TextView availableSiteNumberTextView;
             View matchContainer;
             ImageView sportMatchImageView;
+            ImageView photoImageView;
 
             public ViewHolder(View itemView) {
                 super(itemView);
                 teamOneTextView = (TextView) itemView.findViewById(R.id.teamOneTextView);
                 teamTwoTextView = (TextView) itemView.findViewById(R.id.teamTwoTextView);
                 sportMatchImageView = (ImageView) itemView.findViewById(R.id.sportMatchImageView);
-                availableSiteNumberTextView = (TextView) itemView.findViewById(R.id.availableSiteNumberTextView);
+                photoImageView = (ImageView) itemView.findViewById(R.id.photoImageView);
                 matchContainer = itemView.findViewById(R.id.matchContainer);
             }
         }

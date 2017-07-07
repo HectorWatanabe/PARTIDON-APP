@@ -42,10 +42,9 @@ public class MatchSearchActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_search_white_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.soccer_item);
-        tabLayout.getTabAt(2).setIcon(R.drawable.tennis_ball_item);
-        tabLayout.getTabAt(3).setIcon(R.drawable.basketball_item);
+        tabLayout.getTabAt(0).setIcon(R.drawable.soccer_item);
+        tabLayout.getTabAt(1).setIcon(R.drawable.tennis_ball_item);
+        tabLayout.getTabAt(2).setIcon(R.drawable.basketball_item);
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,10 +54,9 @@ public class MatchSearchActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MatchScoreFragment(), "");
         adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Soccer), "");
-        adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Basket), "");
         adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Tennis), "");
+        adapter.addFragment(SearchMatchFragment.newInstance(Match.Type.Basket), "");
         viewPager.setAdapter(adapter);
     }
 

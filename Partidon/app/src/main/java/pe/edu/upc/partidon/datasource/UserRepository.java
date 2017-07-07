@@ -3,15 +3,15 @@ package pe.edu.upc.partidon.datasource;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
+import com.google.gson.GsonBuilder;
 
 import pe.edu.upc.partidon.datasource.network.PartidonService;
-import pe.edu.upc.partidon.models.User;
+import pe.edu.upc.partidon.models.Player;
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Hector on 27/05/2017.
@@ -25,55 +25,63 @@ public class UserRepository {
     public UserRepository(Context context){
         this.context = context;
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
+                .baseUrl("http://www.partidon.pe.hu/api/v1/")
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                 .build();
 
         service = retrofit.create(PartidonService.class);
     }
 
 
-    public void login(String username, String password){
-        try {
-            Response<User> response = service.login(username,password).execute();
-            User user = response.body();
-            saveUser(user);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-    private void saveUser(User user){
+    public void saveUser(Player player){
         SharedPreferences preferences = getDefaultSharedPreferences();
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("id",user.getId());
-        editor.putString("name",user.getNameUser());
+
+        editor.putString("id_player",player.getId_playerAsString());
+        editor.putString("id",player.getUser().getIdAsString());
+        editor.putString("name",player.getUser().getName());
+        editor.putString("local",player.getUser().getAddress());
+        editor.putString("sport",player.getUser().getSportAsString());
+        editor.putString("api_token",player.getUser().getApi_token());
+        editor.putString("icon_image",player.getUser().getIcon_image());
+
 
         editor.apply();
     }
 
-    public User getUser(){
-        User user2 = new User();
-        user2.setNameUser("Mafer");
-        user2.setId("123");
-        return user2;
-        /*SharedPreferences preferences = getDefaultSharedPreferences();
-        String id = preferences.getString("id",null);
-        if(id == null){
-            return null;
-        }
+    public interface LoginCallback{
+        void onComplete(Player player);
+        void onError(String message);
+    }
 
-        User user = new User();
-        user.setId(id);
-        user.setNameUser(preferences.getString("name",""));
-        return user;*/
+
+
+    public void getlogin(String username, String password,final UserRepository.LoginCallback callback){
+
+        service.getlogin( username,  password).enqueue(new Callback<Player>() {
+            @Override
+            public void onResponse(Call<Player> call, Response<Player> response) {
+
+                Player player = response.body();
+                if(player!=null) {
+                    saveUser(player);
+                }
+                callback.onComplete(player);
+            }
+
+            @Override
+            public void onFailure(Call<Player> call, Throwable t) {
+                callback.onError(t.getMessage());
+            }
+        });
     }
 
 
     private SharedPreferences getDefaultSharedPreferences(){
         return context.getSharedPreferences("PARTIDON",Context.MODE_PRIVATE);
     }
+
+
 
 }

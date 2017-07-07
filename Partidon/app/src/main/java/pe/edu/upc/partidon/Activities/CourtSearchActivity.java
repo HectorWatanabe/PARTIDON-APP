@@ -1,19 +1,16 @@
 package pe.edu.upc.partidon.Activities;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
-import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.view.MenuItem;
 
 import pe.edu.upc.partidon.Adapters.SectionsPageAdapter;
 import pe.edu.upc.partidon.R;
 import pe.edu.upc.partidon.fragments.BasketballSearchCourtFragment;
-import pe.edu.upc.partidon.fragments.MatchScoreFragment;
-import pe.edu.upc.partidon.fragments.SearchLessMoneyCourtFragment;
-import pe.edu.upc.partidon.fragments.SearchMoreMoneyCourtFragment;
+import pe.edu.upc.partidon.fragments.CourtLocationsFragment;
 import pe.edu.upc.partidon.fragments.SoccerSearchCourtFragment;
 import pe.edu.upc.partidon.fragments.TennisSearchCourtFragment;
 
@@ -44,12 +41,10 @@ public class CourtSearchActivity extends AppCompatActivity {
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
             tabLayout.setupWithViewPager(mViewPager);
 
-            tabLayout.getTabAt(0).setIcon(R.drawable.ic_search_white_24dp);
-            tabLayout.getTabAt(1).setIcon(R.drawable.soccer_item);
+            tabLayout.getTabAt(0).setIcon(R.drawable.soccer_item);
+            tabLayout.getTabAt(1).setIcon(R.drawable.basketball_item);
             tabLayout.getTabAt(2).setIcon(R.drawable.tennis_ball_item);
-            tabLayout.getTabAt(3).setIcon(R.drawable.basketball_item);
-            tabLayout.getTabAt(4).setIcon(R.drawable.ic_arrow_downward_white_24dp);
-            tabLayout.getTabAt(5).setIcon(R.drawable.ic_arrow_upward_white_24dp);
+            tabLayout.getTabAt(3).setIcon(R.drawable.ic_my_location_white_24dp);
 
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -59,15 +54,14 @@ public class CourtSearchActivity extends AppCompatActivity {
 
         private void setupViewPager(ViewPager viewPager) {
             SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-            adapter.addFragment(new MatchScoreFragment(), "");
 
             adapter.addFragment(new SoccerSearchCourtFragment(), "");
 
+            adapter.addFragment(new BasketballSearchCourtFragment(), "");
+
             adapter.addFragment(new TennisSearchCourtFragment(), "");
 
-            adapter.addFragment(new BasketballSearchCourtFragment(), "");
-            adapter.addFragment(new SearchLessMoneyCourtFragment(), "");
-            adapter.addFragment(new SearchMoreMoneyCourtFragment(), "");
+            adapter.addFragment(new CourtLocationsFragment(), "");
 
             viewPager.setAdapter(adapter);
         }

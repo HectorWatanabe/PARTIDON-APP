@@ -1,6 +1,8 @@
 package pe.edu.upc.partidon.models;
 
-import android.graphics.drawable.Drawable;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 /**
  * Created by user on 22/05/2017.
@@ -8,19 +10,35 @@ import android.graphics.drawable.Drawable;
 
 public class Court {
 
+
+    @SerializedName("id")
     private int id;
-    private String title;
-    private String distrit;
-    private double price;
+    @SerializedName("district")
+    private String district;
+    @SerializedName("phone_number")
+    private String phone;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("latitude")
+    private String latitude;
+    @SerializedName("length")
+    private String length;
+    private User user;
+    private List<Business> businesses;
+
 
     public Court() {
     }
 
-    public Court(int id, String title, String distrit, double price) {
+    public Court(int id, String district, String phone, String description, String latitude, String length, User user, List<Business> businesses) {
         this.id = id;
-        this.title = title;
-        this.distrit = distrit;
-        this.price = price;
+        this.district = district;
+        this.phone = phone;
+        this.description = description;
+        this.latitude = latitude;
+        this.length = length;
+        this.user = user;
+        this.businesses = businesses;
     }
 
     public int getId() {
@@ -30,38 +48,69 @@ public class Court {
     public Court setId(int id) {
         this.id = id;
         return this;
+
+    }
+    public String getIdAsString() {
+        return String.format("%d", id);
     }
 
-    public String getTitle() {
-        return title;
+
+    public String getDistrict() {
+        return district;
     }
 
-    public Court setTitle(String title) {
-        this.title = title;
+    public Court setDistrict(String district) {
+        this.district = district;
         return this;
     }
 
-    public String getDistrit() {
-        return distrit;
+    public String getPhone() {
+        return phone;
     }
 
-    public Court setDistrit(String distrit) {
-        this.distrit = distrit;
-        return this;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public Court setPrice(double price) {
-        this.price = price;
-        return this;
-    }
-    public String getPriceAsString() {
-        return String.format("%.2f", price);
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Business> getBusinesses() {
+        return businesses;
+    }
+
+    public void setBusinesses(List<Business> businesses) {
+        this.businesses = businesses;
+    }
 }
+

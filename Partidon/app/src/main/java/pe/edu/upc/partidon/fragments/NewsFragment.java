@@ -51,7 +51,7 @@ public class NewsFragment extends Fragment {
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getChildFragmentManager());
         adapter.addFragment(new NewsFeedFragment(), "Noticias");
-        adapter.addFragment(new GoalsFragment(), "Marcadores");
+        adapter.addFragment(new freeFragment(), "Reservas Gratis");
         viewPager.setAdapter(adapter);
     }
 

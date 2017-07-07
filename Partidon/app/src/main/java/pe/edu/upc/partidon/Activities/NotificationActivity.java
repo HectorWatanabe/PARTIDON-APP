@@ -1,29 +1,29 @@
 package pe.edu.upc.partidon.Activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.partidon.Adapters.NotificationAdapter;
-import pe.edu.upc.partidon.Adapters.PlayerAdapter;
 import pe.edu.upc.partidon.R;
+import pe.edu.upc.partidon.datasource.NotificationRepository;
 import pe.edu.upc.partidon.models.Notification;
-import pe.edu.upc.partidon.models.Player;
 
 public class NotificationActivity extends AppCompatActivity {
 
 
     private static final String TAG = "NotificationActivity";
     private RecyclerView notificationUserRecyclerView;
+
+    private NotificationRepository notificationRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,12 @@ public class NotificationActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        notificationRepository = new NotificationRepository(this);
+
         notificationUserRecyclerView = (RecyclerView) findViewById(R.id.notificationUserRecyclerView);
         notificationUserRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        notificationUserRecyclerView.setAdapter(new NotificationAdapter(this,getNotification()));
+
+        loadCourtsAsync();
     }
 
     @Override
@@ -54,14 +57,23 @@ public class NotificationActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private List<Notification> getNotification(){
-        List<Notification> results = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Notification notifications = new Notification();
-            notifications.setUserName("Maria Fernanda Segovia Chacón " + i);
-            notifications.setUserNotification("Se a unido a uno de tus grupos " + i);
-            results.add(notifications);
-        }
-        return results;
+    private void loadCourtsAsync(){
+        SharedPreferences references = getSharedPreferences("PARTIDON", Context.MODE_PRIVATE);
+
+        notificationRepository.getNotifications(Integer.parseInt(references.getString("id_player",null)) ,new NotificationRepository.NotificationsCallback(){
+            @Override
+            public void onComplete(List<Notification> notifications) {
+
+
+                notificationUserRecyclerView.setAdapter(new NotificationAdapter(getApplicationContext(),notifications));
+
+            }
+
+            @Override
+            public void onError(String message) {
+                Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 }

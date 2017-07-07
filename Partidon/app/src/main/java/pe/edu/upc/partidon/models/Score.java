@@ -1,26 +1,28 @@
 package pe.edu.upc.partidon.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Hector on 03/06/2017.
  */
 
 public class Score {
 
+    @SerializedName("id")
     int user_id;
+    @SerializedName("match_id")
     int match_id;
-    String user_name;
-    String title_match;
+    @SerializedName("score_team_red")
     int home_score;
+    @SerializedName("score_team_blue")
     int away_score;
 
     public Score() {
     }
 
-    public Score(int user_id, int match_id, String user_name, String title_match, int home_score, int away_score) {
+    public Score(int user_id, int match_id, int home_score, int away_score) {
         this.user_id = user_id;
         this.match_id = match_id;
-        this.user_name = user_name;
-        this.title_match = title_match;
         this.home_score = home_score;
         this.away_score = away_score;
     }
@@ -48,24 +50,6 @@ public class Score {
         return this;
     }
 
-    public String getUser_name() {
-        return user_name;
-    }
-
-    public Score setUser_name(String user_name) {
-        this.user_name = user_name;
-        return this;
-    }
-
-    public String getTitle_match() {
-        return title_match;
-    }
-
-    public Score setTitle_match(String title_match) {
-        this.title_match = title_match;
-        return this;
-    }
-
     public int getHome_score() {
         return home_score;
     }
@@ -88,4 +72,6 @@ public class Score {
         this.away_score = away_score;
         return this;
     }
+
+
 }

@@ -2,6 +2,7 @@ package pe.edu.upc.partidon.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.edu.upc.partidon.Activities.TeamActivity;
-import pe.edu.upc.partidon.Activities.WallCourtActivity;
 import pe.edu.upc.partidon.R;
-import pe.edu.upc.partidon.models.Match;
 import pe.edu.upc.partidon.models.Team;
 
 /**
@@ -54,13 +53,16 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(TeamAdapter.ViewHolder holder, int position) {
-        Team team = filteredTeams.get(position);
+        final Team team = filteredTeams.get(position);
         holder.teamNameTextView.setText(team.getTeamName());
         holder.availableSiteNumberTeamTextView.setText(team.getAvailableSiteTeamAsString());
         holder.teamContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, TeamActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("team_id",team.getIdTeam());
+                i.putExtras(bundle);
                 context.startActivity(i);
             }
         });
@@ -69,6 +71,15 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
             case Soccer: holder.sportTeamImageView.setImageResource(R.drawable.soccer_icon); break;
             case Tennis: holder.sportTeamImageView.setImageResource(R.drawable.tennis_ball_icon); break;
         }
+
+        switch(team.getIcon_image())
+        {
+            case "default_team_1": holder.photoTeamImageView.setImageResource(R.drawable.default_team_1); break;
+            case "default_team_2": holder.photoTeamImageView.setImageResource(R.drawable.default_team_2); break;
+            case "default_team_3": holder.photoTeamImageView.setImageResource(R.drawable.default_team_3); break;
+            default: holder.photoTeamImageView.setImageResource(R.drawable.all); break;
+        }
+
        }
     @Override
     public int getItemCount() {
@@ -79,6 +90,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
         TextView teamNameTextView;
         TextView availableSiteNumberTeamTextView;
         ImageView sportTeamImageView;
+        ImageView photoTeamImageView;
         View teamContainer;
 
         public ViewHolder(View itemView) {
@@ -86,6 +98,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.ViewHolder> {
             teamNameTextView = (TextView) itemView.findViewById(R.id.teamNameTextView);
             availableSiteNumberTeamTextView = (TextView) itemView.findViewById(R.id.availableSiteNumberTeamTextView);
             sportTeamImageView = (ImageView) itemView.findViewById(R.id.sportTeamImageView);
+            photoTeamImageView = (ImageView) itemView.findViewById(R.id.photoTeamImageView);
             teamContainer = itemView.findViewById(R.id.teamContainer);
         }
     }

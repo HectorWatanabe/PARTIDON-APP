@@ -8,22 +8,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-import pe.edu.upc.partidon.Adapters.MatchAdapter;
+import pe.edu.upc.partidon.Adapters.CourtAdapter;
 import pe.edu.upc.partidon.Adapters.TeamAdapter;
 import pe.edu.upc.partidon.R;
+import pe.edu.upc.partidon.datasource.CompaniesRepository;
+import pe.edu.upc.partidon.datasource.TeamRepository;
+import pe.edu.upc.partidon.models.Court;
 import pe.edu.upc.partidon.models.Match;
 import pe.edu.upc.partidon.models.Team;
 
 public class SearchTeamFragment extends Fragment {
         private static final String TAG = "SearchTeamFragment";
         private RecyclerView searchTeamRecyclerView;
+        private TeamRepository teamRepository;
 
         private static final String PARAM_TYPE = "PARAM_TYPE";
+
+
 
         public SearchTeamFragment() {
             // Required empty public constructor
@@ -48,6 +54,8 @@ public class SearchTeamFragment extends Fragment {
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_search_team,container,false);
 
+            teamRepository = new TeamRepository(getContext());
+
             if (getArguments() != null){
                 int type = getArguments().getInt(PARAM_TYPE,-1);
                 filter = Team.Type.from(type);
@@ -55,31 +63,30 @@ public class SearchTeamFragment extends Fragment {
 
             searchTeamRecyclerView = (RecyclerView) view.findViewById(R.id.searchTeamRecyclerView);
             searchTeamRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-            TeamAdapter adapter = new TeamAdapter(getContext(),getTeam());
-            adapter.setFilter(filter);
-            searchTeamRecyclerView.setAdapter(adapter);
 
+
+
+            loadCourtsAsync();
 
             return view;
         }
 
-    public void onComplete(List<Match> matches){
-        TeamAdapter adapter = new TeamAdapter(getContext(),getTeam());
-        searchTeamRecyclerView.setAdapter(adapter);
-    }
 
-    private List<Team> getTeam(){
-        List<Team> results = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Team teams = new Team();
-            int type = new Random().nextInt(3)+1;
-            teams.setTeamName("Team Name One " + i);
-            teams.setSport(type);
-            teams.setAvailableSiteTeam(i);
+    private void loadCourtsAsync(){
+        teamRepository.getTeams(new TeamRepository.TeamsCallback() {
+            @Override
+            public void onComplete(List<Team> teams) {
+                TeamAdapter adapter = new TeamAdapter(getContext(),teams);
+                adapter.setFilter(filter);
+                searchTeamRecyclerView.setAdapter(adapter);
 
-            results.add(teams);
-        }
-        return results;
+            }
+
+            @Override
+            public void onError(String message) {
+                Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     }

@@ -41,10 +41,9 @@ public class TeamSearchActivity extends AppCompatActivity {
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
             tabLayout.setupWithViewPager(mViewPager);
 
-            tabLayout.getTabAt(0).setIcon(R.drawable.ic_search_white_24dp);
-            tabLayout.getTabAt(1).setIcon(R.drawable.soccer_item);
-            tabLayout.getTabAt(2).setIcon(R.drawable.tennis_ball_item);
-            tabLayout.getTabAt(3).setIcon(R.drawable.basketball_item);
+            tabLayout.getTabAt(0).setIcon(R.drawable.soccer_item);
+            tabLayout.getTabAt(1).setIcon(R.drawable.tennis_ball_item);
+            tabLayout.getTabAt(2).setIcon(R.drawable.basketball_item);
 
 
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -54,10 +53,9 @@ public class TeamSearchActivity extends AppCompatActivity {
 
         private void setupViewPager(ViewPager viewPager) {
             SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-            adapter.addFragment(new MatchScoreFragment(), "");
             adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Soccer), "");
-            adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Basket), "");
             adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Tennis), "");
+            adapter.addFragment(SearchTeamFragment.newInstance(Team.Type.Basket), "");
             viewPager.setAdapter(adapter);
         }
 

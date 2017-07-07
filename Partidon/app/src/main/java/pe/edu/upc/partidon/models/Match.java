@@ -1,6 +1,6 @@
 package pe.edu.upc.partidon.models;
 
-import java.util.Date;
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Desarrollo Infobox on 24/05/2017.
@@ -17,29 +17,57 @@ public class Match {
         public int getType() { return type; }
         public static Type from(int type){
             switch (type){
-                case 1: return Basket;
-                case 2: return Soccer;
+                case 1: return Soccer;
+                case 2: return Basket;
                 case 3: return Tennis;
                 default: return None;
             }
         }
     }
 
+    @SerializedName("id")
     private int idMatch;
-    private String teamOne;
-    private String teamTwo;
+    @SerializedName("name")
+    private String title;
+    @SerializedName("team_red_id")
+    private int teamOne;
+    @SerializedName("team_blue_id")
+    private int teamTwo;
+    @SerializedName("sport_id")
     private int sport;
-    private int availableSite;
+    @SerializedName("address")
+    private String location;
+    @SerializedName("match_date")
+    private String date;
+    @SerializedName("icon_image")
+    private String icon_image;
+    @SerializedName("district")
+    private String district;
+    @SerializedName("author_id")
+    private int author_id;
+    @SerializedName("team_red")
+    private Team team_red;
+    @SerializedName("team_blue")
+    private Team team_blue;
+
+
 
     public Match() {
     }
 
-    public Match(int idMatch, String teamOne, String teamTwo, int sport, int availableSite) {
+    public Match(int idMatch, String title, int teamOne, int teamTwo, int sport, String location, String date, String icon_image, String district, int author_id, Team team_red, Team team_blue) {
         this.idMatch = idMatch;
+        this.title = title;
         this.teamOne = teamOne;
         this.teamTwo = teamTwo;
         this.sport = sport;
-        this.availableSite = availableSite;
+        this.location = location;
+        this.date = date;
+        this.icon_image = icon_image;
+        this.district = district;
+        this.author_id = author_id;
+        this.team_red = team_red;
+        this.team_blue = team_blue;
     }
 
     public int getIdMatch() {
@@ -55,26 +83,51 @@ public class Match {
         return this;
     }
 
-    public String getTeamOne() {
+    public int getTeamOne() {
         return teamOne;
     }
 
-    public Match setTeamOne(String teamOne) {
-        this.teamOne = teamOne;
-        return this;
+    public String getTeamOneAsString() {
+        return String.format("%d", teamOne);
     }
 
-    public String getTeamTwo() {
+
+    public void setTeamOne(int teamOne) {
+        this.teamOne = teamOne;
+    }
+
+    public int getTeamTwo() {
         return teamTwo;
     }
 
-    public Match setTeamTwo(String teamTwo) {
+    public String getTeamTwoAsString() {
+        return String.format("%d", teamTwo);
+    }
+
+    public void setTeamTwo(int teamTwo) {
         this.teamTwo = teamTwo;
-        return this;
+    }
+
+    public int getAuthor_id() {
+        return author_id;
+    }
+
+    public String getAuthor_idAsString() {
+        return String.format("%d", author_id);
+    }
+
+
+    public void setAuthor_id(int author_id) {
+        this.author_id = author_id;
     }
 
     public int getSport() {
         return sport;
+    }
+
+
+    public String getSportAsString() {
+        return String.format("%d", sport);
     }
 
     public Match setSport(int sport) {
@@ -82,19 +135,64 @@ public class Match {
         return this;
     }
 
-    public int getAvailableSite() {
-        return availableSite;
-    }
-    public String getAvailableSiteAsString() {
-        return String.format("%d", availableSite);
+    public String getTitle() {
+        return title;
     }
 
-    public Match setAvailableSite(int availableSite) {
-        this.availableSite = availableSite;
-        return this;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public Type getType(){
         return Type.from(sport);
+    }
+
+    public String getIcon_image() {
+        return icon_image;
+    }
+
+    public void setIcon_image(String icon_image) {
+        this.icon_image = icon_image;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+
+    public Team getTeam_red() {
+        return team_red;
+    }
+
+    public void setTeam_red(Team team_red) {
+        this.team_red = team_red;
+    }
+
+    public Team getTeam_blue() {
+        return team_blue;
+    }
+
+    public void setTeam_blue(Team team_blue) {
+        this.team_blue = team_blue;
     }
 }

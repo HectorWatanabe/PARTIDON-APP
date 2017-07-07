@@ -26,5 +26,14 @@
         <item name="colorControlActivated">@color/lightGrey</item>
     </style>
 
+    <style name="button_style_login">
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="button_style_signup">
+        <item name="android:background">@drawable/button_style_signup</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 
 </resources>
